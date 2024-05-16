@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block tittle %} Home {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Productos Disponibles</h4>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th>Descripción</th>
+                        <th>.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for family in familys %}
+                    <tr>
+                        <td>{{ family.id }}</td>
+                        <td>{{ family.name }}</td>
+                        <td>${{ family.price }} MXN</td>
+                        <td>
+                            <img src="{{ family.image.url }}" height="125px">
+                        </td>
+                        <td>{{ family.description }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+        
+    </div>
+</div>
+
+{% endblock %}
